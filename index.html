@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Mohamed Amin — Cybersecurity, Networks &amp; Intelligent Systems Student</title>
+  <meta name="description" content="Portfolio of Mohamed Amin, first-year SITC student at ISSAT Mahdia (Tunisia), exploring cybersecurity, computer networks, embedded systems, IoT, cloud computing and intelligent systems.">
+  <meta name="theme-color" content="#070b12">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mohamed Amin — Cybersecurity, Networks &amp; Intelligent Systems">
+  <meta property="og:description" content="First-year SITC student at ISSAT Mahdia building skills in cybersecurity, networks, embedded systems, IoT and AI.">
+  <meta name="twitter:card" content="summary">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="#home" aria-label="Mohamed Amin, home">MA<span>_</span></a>
+    <nav aria-label="Sections" id="nav">
+      <a href="#about">About</a><a href="#education">Education</a><a href="#cybersecurity">Security</a>
+      <a href="#networks">Networks</a><a href="#iot">IoT</a><a href="#projects">Projects</a>
+      <a href="#skills">Skills</a><a href="#roadmap">Roadmap</a><a href="#lab">Lab</a><a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="home">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow mono">SITC · ISSAT Mahdia · Tunisia</p>
+        <h1>Building secure systems at the intersection of cybersecurity, networks &amp; intelligent technologies.</h1>
+        <p class="lead">First-year SITC student at ISSAT Mahdia, exploring cybersecurity, computer networks, embedded systems, IoT, cloud computing and intelligent systems.</p>
+        <ul class="meta mono">
+          <li>Mohamed Amin</li><li>First-year student</li><li>Tunisia</li>
+        </ul>
+        <p class="track mono">SITC — Systèmes Intelligents, Télécommunications et Cybersécurité</p>
+        <div class="cta">
+          <a class="btn primary" href="#projects">View Projects</a>
+          <a class="btn" href="#about">About Me</a>
+          <a class="btn" id="ghLink" href="#contact" rel="noopener">GitHub</a>
+          <a class="btn" href="#contact">Contact</a>
+        </div>
+      </div>
+      <div class="term" role="img" aria-label="Terminal window showing a short introduction">
+        <div class="term-bar"><i></i><i></i><i></i><span class="mono">amin@sitc:~</span></div>
+        <pre class="term-body mono" id="term" aria-hidden="true"></pre>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="reveal">
+    <div class="wrap">
+      <p class="eyebrow mono">01 / About</p>
+      <h2>One degree, many engineering domains</h2>
+      <p>My Licence in Information and Communication Technologies follows the SITC track. It is not a generic ICT degree: it combines cybersecurity, telecommunications, intelligent systems, computer systems and networking, on top of mathematics, physics and electronics.</p>
+      <p>I am a student building skills step by step. This site shows what I study, what I am learning, and the projects I will document along the way.</p>
+      <h3>Knowledge map</h3>
+      <ol class="flow" id="knowledgeFlow"></ol>
+    </div>
+  </section>
+
+  <section id="education" class="reveal">
+    <div class="wrap">
+      <p class="eyebrow mono">02 / Education</p>
+      <h2>Licence SITC, 2026 → 2030</h2>
+      <div class="years" id="years" role="tablist" aria-label="Academic years"></div>
+      <div class="panel" id="yearPanel" role="tabpanel" aria-live="polite"></div>
+      <h3>Modules by semester</h3>
+      <div class="tabs" id="semTabs" role="tablist" aria-label="Semesters"></div>
+      <div id="semPanel" role="tabpanel"></div>
+    </div>
+  </section>
+
+  <section id="cybersecurity" class="reveal">
+    <div class="wrap">
+      <p class="eyebrow mono">03 / Cybersecurity</p>
+      <h2>Where I am heading</h2>
+      <p>These are <strong>learning areas and academic directions</strong>. They become “projects” only when a real, documented project backs them up.</p>
+      <div class="cards" id="cyberAreas"></div>
+      <h3>Security architecture <span class="tag">conceptual</span></h3>
+      <ol class="flow" id="cyberFlow"></ol>
+    </div>
+  </section>
+
+  <section id="networks" class="reveal">
+    <div class="wrap">
+      <p class="eyebrow mono">04 / Networks &amp; telecommunications</p>
+      <h2>From packets to radio waves</h2>
+      <ul class="chips" id="netTopics"></ul>
+      <h3>Interactive topology</h3>
+      <p class="muted">Select a device to see what it does.</p>
+      <div class="topo" id="topo"><svg id="topoLines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg></div>
+      <div class="panel" id="topoInfo" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section id="iot" class="reveal">
+    <div class="wrap">
+      <p class="eyebrow mono">05 / Embedded &amp; IoT</p>
+      <h2>From sensor to dashboard</h2>
+      <ol class="flow" id="iotFlow"></ol>
+      <ul class="chips" id="hardware"></ul>
+    </div>
+  </section>
+
+  <section id="projects" class="reveal">
+    <div class="wrap">
+      <p class="eyebrow mono">06 / Projects</p>
+      <h2>Project showcase</h2>
+      <p class="muted">Entries marked <span class="tag">Example</span> are placeholders showing the structure. Replace them in <code>js/data.js</code> with real work.</p>
+      <div class="filters" id="filters" role="group" aria-label="Filter projects"></div>
+      <div class="cards" id="projectGrid"></div>
+    </div>
+  </section>
+
+  <section id="skills" class="reveal">
+    <div class="wrap">
+      <p class="eyebrow mono">07 / Skills</p>
+      <h2>Skills, honestly levelled</h2>
+      <p class="muted">No percentages. Levels are conservative and match the evidence I have today.</p>
+      <ul class="legend mono" id="legend"></ul>
+      <div class="cards" id="skillGrid"></div>
+    </div>
+  </section>
+
+  <section id="roadmap" class="reveal">
+    <div class="wrap">
+      <p class="eyebrow mono">08 / Roadmap</p>
+      <h2>Learning roadmap</h2>
+      <div class="tabs" id="roadTabs" role="tablist" aria-label="Roadmap phases"></div>
+      <div class="panel" id="roadPanel" role="tabpanel" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section id="lab" class="reveal">
+    <div class="wrap">
+      <p class="eyebrow mono">09 / Cyber lab</p>
+      <h2>Homelab design <span class="tag">planned</span></h2>
+      <p>A conceptual lab for learning on <strong>my own machines, in an isolated network, with explicit authorization</strong>. No activity against real targets.</p>
+      <ol class="flow" id="labFlow"></ol>
+      <ul class="chips" id="labTools"></ul>
+    </div>
+  </section>
+
+  <section id="achievements" class="reveal">
+    <div class="wrap">
+      <p class="eyebrow mono">10 / Achievements</p>
+      <h2>Certifications &amp; achievements</h2>
+      <p class="muted">Nothing is claimed yet. These slots fill in as real results arrive.</p>
+      <div id="achList"></div>
+    </div>
+  </section>
+
+  <section id="goals" class="reveal">
+    <div class="wrap">
+      <p class="eyebrow mono">11 / Direction</p>
+      <h2>Future goals</h2>
+      <div class="cards" id="goalList"></div>
+    </div>
+  </section>
+
+  <section id="contact" class="reveal">
+    <div class="wrap">
+      <p class="eyebrow mono">12 / Contact</p>
+      <h2>Get in touch</h2>
+      <div class="contact-grid">
+        <ul class="info" id="contactInfo"></ul>
+        <form id="form" novalidate>
+          <label for="f-name">Name</label>
+          <input id="f-name" name="name" autocomplete="name" maxlength="80" required>
+          <p class="err" id="e-name" role="alert"></p>
+          <label for="f-email">Email</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" maxlength="120" required>
+          <p class="err" id="e-email" role="alert"></p>
+          <label for="f-msg">Message</label>
+          <textarea id="f-msg" name="message" rows="5" maxlength="1500" required></textarea>
+          <p class="err" id="e-msg" role="alert"></p>
+          <button class="btn primary" type="submit">Send message</button>
+          <p class="muted small" id="formStatus" role="status"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">© <span id="year"></span> Mohamed Amin · ISSAT Mahdia, Tunisia</div></footer>
+<noscript><p class="wrap">Please enable JavaScript to see the full portfolio.</p></noscript>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
