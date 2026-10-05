@@ -21,7 +21,8 @@ The visitor reads it as: who I am → what I study → what I am learning → wh
 index.html       semantic structure, SEO and Open Graph tags
 css/styles.css   tokens, layout, components
 js/data.js       ALL content: profile, modules, projects, skills, roadmap
-js/main.js       rendering (text only, no innerHTML), tabs, filter, topology, form validation
+js/i18n/         en.js, fr.js, ar.js (translations)
+js/main.js       rendering, language switching, tabs, filter, topology, form validation
 ```
 
 ## Make it yours
@@ -30,6 +31,15 @@ js/main.js       rendering (text only, no innerHTML), tabs, filter, topology, fo
 2. `js/data.js` → `projects`: replace the entries marked `example: true` with real projects.
 3. `js/data.js` → `skills`: raise a level only when you have evidence (a project, a certificate).
 4. Add an Open Graph image: put `og.png` here and add `<meta property="og:image" content="og.png">`.
+
+## Languages (EN / FR / AR)
+
+The switcher is in the header. The choice is remembered, and Arabic switches the page to right-to-left.
+- Page texts and `data.js` texts are translated by their **English text** as the key: see `t:{...}` in `js/i18n/fr.js` and `ar.js`.
+- When you add or change an English text in `index.html` or `data.js`, add the same English text as a key in `fr.js` and `ar.js`. A missing key simply shows the English text.
+- Paragraphs with links or bold text use short ids (`data-th="..."`) under `html:{...}` in each language file.
+- Official course titles stay in French on purpose. The hero terminal stays in English like a real terminal.
+- To add a language: create `xx.js`, add its `<script>` and a button in `index.html`, and add it to `LANGS` in `main.js`.
 
 ## Contact form
 

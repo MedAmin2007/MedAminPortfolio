@@ -11,7 +11,7 @@
   <meta property="og:description" content="First-year SITC student at ISSAT Mahdia building skills in cybersecurity, networks, embedded systems, IoT and AI.">
   <meta name="twitter:card" content="summary">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -25,6 +25,11 @@
       <a href="#networks">Networks</a><a href="#iot">IoT</a><a href="#projects">Projects</a>
       <a href="#skills">Skills</a><a href="#roadmap">Roadmap</a><a href="#lab">Lab</a><a href="#contact">Contact</a>
     </nav>
+    <div class="lang" role="group" aria-label="Language" data-notr>
+      <button type="button" data-lang="en" aria-label="English" aria-pressed="true">EN</button>
+      <button type="button" data-lang="fr" aria-label="Français" aria-pressed="false">FR</button>
+      <button type="button" data-lang="ar" aria-label="العربية" aria-pressed="false">AR</button>
+    </div>
   </div>
 </header>
 
@@ -32,7 +37,7 @@
   <section class="hero" id="home">
     <div class="wrap hero-grid">
       <div>
-        <p class="eyebrow mono">SITC · ISSAT Mahdia · Tunisia</p>
+        <p class="eyebrow mono" data-th="hero_eyebrow">SITC · <a href="https://issatmh.rnu.tn/" target="_blank" rel="noopener noreferrer">ISSAT Mahdia</a> · Tunisia</p>
         <h1>Building secure systems at the intersection of cybersecurity, networks &amp; intelligent technologies.</h1>
         <p class="lead">First-year SITC student at ISSAT Mahdia, exploring cybersecurity, computer networks, embedded systems, IoT, cloud computing and intelligent systems.</p>
         <ul class="meta mono">
@@ -68,6 +73,7 @@
     <div class="wrap">
       <p class="eyebrow mono">02 / Education</p>
       <h2>Licence SITC, 2026 → 2030</h2>
+      <p class="muted" data-th="edu_p">I study at <a href="https://issatmh.rnu.tn/" target="_blank" rel="noopener noreferrer">ISSAT Mahdia</a> (Institut Supérieur des Sciences Appliquées et de Technologie de Mahdia), Tunisia.</p>
       <div class="years" id="years" role="tablist" aria-label="Academic years"></div>
       <div class="panel" id="yearPanel" role="tabpanel" aria-live="polite"></div>
       <h3>Modules by semester</h3>
@@ -80,7 +86,7 @@
     <div class="wrap">
       <p class="eyebrow mono">03 / Cybersecurity</p>
       <h2>Where I am heading</h2>
-      <p>These are <strong>learning areas and academic directions</strong>. They become “projects” only when a real, documented project backs them up.</p>
+      <p data-th="cyber_p">These are <strong>learning areas and academic directions</strong>. They become “projects” only when a real, documented project backs them up.</p>
       <div class="cards" id="cyberAreas"></div>
       <h3>Security architecture <span class="tag">conceptual</span></h3>
       <ol class="flow" id="cyberFlow"></ol>
@@ -112,7 +118,7 @@
     <div class="wrap">
       <p class="eyebrow mono">06 / Projects</p>
       <h2>Project showcase</h2>
-      <p class="muted">Entries marked <span class="tag">Example</span> are placeholders showing the structure. Replace them in <code>js/data.js</code> with real work.</p>
+      <p class="muted" data-th="proj_note">Entries marked <span class="tag">Example</span> are placeholders showing the structure. Replace them in <code>js/data.js</code> with real work.</p>
       <div class="filters" id="filters" role="group" aria-label="Filter projects"></div>
       <div class="cards" id="projectGrid"></div>
     </div>
@@ -141,7 +147,7 @@
     <div class="wrap">
       <p class="eyebrow mono">09 / Cyber lab</p>
       <h2>Homelab design <span class="tag">planned</span></h2>
-      <p>A conceptual lab for learning on <strong>my own machines, in an isolated network, with explicit authorization</strong>. No activity against real targets.</p>
+      <p data-th="lab_p">A conceptual lab for learning on <strong>my own machines, in an isolated network, with explicit authorization</strong>. No activity against real targets.</p>
       <ol class="flow" id="labFlow"></ol>
       <ul class="chips" id="labTools"></ul>
     </div>
@@ -188,10 +194,13 @@
   </section>
 </main>
 
-<footer><div class="wrap">© <span id="year"></span> Mohamed Amin · ISSAT Mahdia, Tunisia</div></footer>
+<footer><div class="wrap" data-th="footer">© 2026 Mohamed Amin</div></footer>
 <noscript><p class="wrap">Please enable JavaScript to see the full portfolio.</p></noscript>
 
 <script src="js/data.js"></script>
+<script src="js/i18n/en.js"></script>
+<script src="js/i18n/fr.js"></script>
+<script src="js/i18n/ar.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

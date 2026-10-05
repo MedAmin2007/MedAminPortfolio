@@ -5,9 +5,10 @@ window.SITE = {
     status: 'First-year student',
     location: 'Tunisia',
     school: 'ISSAT Mahdia',
+    schoolUrl: 'https://issatmh.rnu.tn/',
     track: 'SITC — Systèmes Intelligents, Télécommunications et Cybersécurité',
-    email: 'mohamedaminbejaoui12@gmail.com',                       // [PLACEHOLDER]
-    github: 'https://github.com/MedAmin2007',            // [PLACEHOLDER]
+    email: 'your.email@example.com',                       // [PLACEHOLDER]
+    github: 'https://github.com/your-username',            // [PLACEHOLDER]
     linkedin: 'https://linkedin.com/in/your-username'      // [PLACEHOLDER]
   },
 
