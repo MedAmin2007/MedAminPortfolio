@@ -257,7 +257,7 @@ window.I18N.fr = {
   "cyber_p": "Ce sont des <strong>domaines d'apprentissage et des orientations académiques</strong>. Ils ne deviennent des « projets » que lorsqu'un projet réel et documenté les appuie.",
   "lab_p": "Un laboratoire conceptuel pour apprendre sur <strong>mes propres machines, dans un réseau isolé, avec autorisation explicite</strong>. Aucune activité contre des cibles réelles.",
   "proj_note": "Les entrées marquées <span class=\"tag\">Exemple</span> sont des espaces réservés qui montrent la structure. Remplacez-les dans <code>js/data.js</code> par de vrais travaux.",
-  "footer": "© {year} Mohamed Amin · {school}, Tunisie"
+  "footer": "© {year} Mohamed Amin Bejaoui · {school}, Tunisie"
  },
- "title": "Mohamed Amin — Étudiant en cybersécurité, réseaux et systèmes intelligents"
+ "title": "Mohamed Amin Bejaoui — Étudiant en cybersécurité, réseaux et systèmes intelligents"
 };

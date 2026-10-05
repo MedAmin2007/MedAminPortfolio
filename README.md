@@ -1,4 +1,4 @@
-# Mohamed Amin — Engineering Portfolio (plain HTML, CSS, JavaScript)
+# Mohamed Amin Bejaoui — Engineering Portfolio (plain HTML, CSS, JavaScript)
 
 No framework and no build step. Open `index.html` in a browser, or copy the folder into XAMPP's `htdocs`.
 

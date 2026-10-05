@@ -1,19 +1,19 @@
 // All content lives here. Placeholders are marked [PLACEHOLDER] or "Example".
 window.SITE = {
   profile: {
-    name: 'Mohamed Amin',
+    name: 'Mohamed Amin Bejaoui',
     status: 'First-year student',
     location: 'Tunisia',
     school: 'ISSAT Mahdia',
     schoolUrl: 'https://issatmh.rnu.tn/',
     track: 'SITC — Systèmes Intelligents, Télécommunications et Cybersécurité',
     email: 'your.email@example.com',                       // [PLACEHOLDER]
-    github: 'https://github.com/your-username',            // [PLACEHOLDER]
+    github: 'https://github.com/MedAmin2007',
     linkedin: 'https://linkedin.com/in/your-username'      // [PLACEHOLDER]
   },
 
   terminal: [
-    ['whoami', 'mohamed-amin'],
+    ['whoami', 'mohamed-amin-bejaoui'],
     ['cat education.txt', 'Licence TIC · SITC · ISSAT Mahdia (2026–2030)'],
     ['cat focus.txt', 'cybersecurity · networks · embedded · IoT · AI'],
     ['cat status.txt', 'learning, building, documenting']
