@@ -2,7 +2,27 @@
   'use strict';
   var S = window.SITE, P = S.profile, I = window.I18N || {};
   var LANGS = ['en', 'fr', 'ar'];
-  var SCHOOL = '<a href="' + P.schoolUrl + '" target="_blank" rel="noopener noreferrer">ISSAT Mahdia</a>';
+  var ICONS = {   // inline SVG, 24x24: no external requests, inherits the text colour
+    github: { fill: true, d: ['M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'] },
+    linkedin: { fill: true, d: ['M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z'] },
+    mail: { d: ['M4 6h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1z', 'M3 7l9 6.5L21 7'] },
+    pin: { d: ['M12 21s-6-5.2-6-10a6 6 0 0 1 12 0c0 4.8-6 10-6 10z', 'M12 8.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z'] },
+    external: { d: ['M14 4h6v6', 'M20 4l-9 9', 'M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5'] },
+    doc: { d: ['M7 3h7l5 5v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z', 'M14 3v5h5', 'M9 13h6M9 17h6'] },
+    school: { d: ['M2 9l10-5 10 5-10 5z', 'M6 11.2V16c0 1.4 2.7 3 6 3s6-1.6 6-3v-4.8', 'M22 9v6'] }
+  };
+  function icon(name) {
+    var def = ICONS[name], ns = 'http://www.w3.org/2000/svg', svg = document.createElementNS(ns, 'svg');
+    svg.setAttribute('viewBox', '0 0 24 24');
+    svg.setAttribute('class', 'ico');
+    svg.setAttribute('aria-hidden', 'true');
+    svg.setAttribute('focusable', 'false');
+    if (def.fill) svg.setAttribute('fill', 'currentColor');
+    else { svg.setAttribute('fill', 'none'); svg.setAttribute('stroke', 'currentColor'); svg.setAttribute('stroke-width', '1.8'); svg.setAttribute('stroke-linecap', 'round'); svg.setAttribute('stroke-linejoin', 'round'); }
+    def.d.forEach(function (d) { var path = document.createElementNS(ns, 'path'); path.setAttribute('d', d); svg.appendChild(path); });
+    return svg;
+  }
+  var SCHOOL = '<a class="ext" href="' + P.schoolUrl + '" target="_blank" rel="noopener noreferrer">' + icon('school').outerHTML + 'ISSAT Mahdia</a>';
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   var lang = 'en';
   var st = { year: 0, sem: 0, road: 0, cat: 'All', topo: 'rt' }; // UI state kept across language changes
@@ -175,9 +195,11 @@
       add(c, make('p', '', tr(p.desc)));
       add(c, make('p', 'mono small', p.tech.join(' · ')));
       var links = add(c, make('div', 'links'));
-      [['GitHub', p.github], ['Demo', p.demo], ['Docs', p.docs]].forEach(function (l) {
-        if (l[1]) { var a = add(links, make('a', '', tr(l[0]))); a.href = l[1]; a.rel = 'noopener'; }
-        else add(links, make('span', '', tr(l[0]) + ' · ' + tr('soon')));
+      [['GitHub', p.github, 'github'], ['Demo', p.demo, 'external'], ['Docs', p.docs, 'doc']].forEach(function (l) {
+        var el = add(links, make(l[1] ? 'a' : 'span'));
+        if (l[1]) { el.href = l[1]; el.rel = 'noopener'; }
+        add(el, icon(l[2]));
+        add(el, document.createTextNode(l[1] ? tr(l[0]) : tr(l[0]) + ' · ' + tr('soon')));
       });
     });
   }
@@ -231,14 +253,21 @@
       add(c, make('h4', '', tr(g[0])));
       add(c, make('p', '', tr(g[1])));
     });
-    var info = clear('#contactInfo');
-    [['Email', P.email, 'mailto:' + P.email], ['GitHub', P.github, P.github], ['LinkedIn', P.linkedin, P.linkedin], ['Location', P.location, '']]
-      .forEach(function (r) {
-        var li = add(info, make('li'));
-        add(li, make('span', '', tr(r[0])));
-        if (r[2]) { var a = add(li, make('a', '', r[1])); a.href = r[2]; a.rel = 'noopener'; }
-        else add(li, document.createTextNode(tr(r[1])));
-      });
+    var rows = [['Email', P.email, 'mailto:' + P.email, 'mail'], ['GitHub', P.github, P.github, 'github'],
+                ['LinkedIn', P.linkedin, P.linkedin, 'linkedin'], ['Location', tr(P.location), '', 'pin']];
+    var info = clear('#contactInfo'), soc = clear('#socials');
+    rows.forEach(function (r) {
+      var li = add(info, make('li')), row = add(li, make(r[2] ? 'a' : 'div', 'row'));
+      if (r[2]) { row.href = r[2]; row.rel = 'noopener'; }
+      add(add(row, make('span', 'tile')), icon(r[3]));
+      var txt = add(row, make('span', 'txt'));
+      add(txt, make('small', '', tr(r[0])));
+      add(txt, make('strong', '', r[1].replace(/^https?:\/\//, '')));
+      if (r[2]) {   // icon-only buttons in the footer
+        var a = add(soc, make('a')); a.href = r[2]; a.rel = 'noopener'; a.setAttribute('aria-label', tr(r[0]));
+        add(a, icon(r[3]));
+      }
+    });
   }
 
   function renderAll() {
@@ -289,6 +318,7 @@
 
   /* ---------- start ---------- */
   $('#ghLink').href = P.github;
+  $('#ghLink').insertBefore(icon('github'), $('#ghLink').firstChild);
   var saved = null;
   try { saved = localStorage.getItem('sitc-lang'); } catch (e) {}
   var browser = (navigator.language || 'en').slice(0, 2);
