@@ -72,8 +72,9 @@ window.SITE = {
   labFlow: [['Attacker VM', 'Isolated'], ['Virtual network', 'Host-only'], ['Linux server', 'Target (own)'], ['Windows machine', 'Target (own)'], ['Logging', 'Collect events'], ['SIEM', 'Analyse']],
   labTools: ['Kali Linux', 'Ubuntu Server', 'VirtualBox', 'Docker', 'Wireshark', 'Git', 'GitHub'],
 
-  projectCats: ['All', 'Cybersecurity', 'Networking', 'Programming', 'Embedded', 'IoT', 'Web', 'AI'],
+  projectCats: ['All', 'Cybersecurity', 'Networking', 'Programming', 'Digital Logic', 'Embedded', 'IoT', 'Web', 'AI'],
   projects: [
+    { name: 'Inside a Calculator: 10 + 9', cat: 'Digital Logic', status: 'Completed', example: false, desc: 'An interactive lab following one addition from keypad to display: binary adder, CPU, ALU, binary-to-BCD and 7-segment decoder.', tech: ['HTML', 'CSS', 'JavaScript'], github: '', demo: 'projects/calculator-lab/index.html', docs: '' },
     { name: 'Personal portfolio website', cat: 'Web', status: 'In Progress', example: false, desc: 'This site: plain HTML, CSS and JavaScript, built to be easy to maintain.', tech: ['HTML', 'CSS', 'JavaScript'], github: '', demo: '', docs: '' },
     { name: 'Home network lab', cat: 'Networking', status: 'Planned', example: true, desc: 'Virtual machines on an isolated network to practise addressing, routing and packet analysis.', tech: ['VirtualBox', 'Linux', 'Wireshark'], github: '', demo: '', docs: '' },
     { name: 'Secure sensor node', cat: 'IoT', status: 'Planned', example: true, desc: 'ESP32 sending sensor data to a small server, with authentication and encrypted transport.', tech: ['ESP32', 'C/C++', 'MQTT'], github: '', demo: '', docs: '' },

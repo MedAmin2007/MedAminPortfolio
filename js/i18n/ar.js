@@ -249,7 +249,10 @@ window.I18N.ar = {
   "Please write at least 10 characters.": "يرجى كتابة 10 أحرف على الأقل.",
   "Demo mode: set your real email in js/data.js to enable sending.": "وضع تجريبي: ضع بريدك الحقيقي في js/data.js لتفعيل الإرسال.",
   "Opening your email app…": "جارٍ فتح تطبيق البريد…",
-  "Portfolio contact": "تواصل عبر الـ Portfolio"
+  "Portfolio contact": "تواصل عبر الـ Portfolio",
+  "Digital Logic": "المنطق الرقمي",
+  "Inside a Calculator: 10 + 9": "داخل الآلة الحاسبة: 10 + 9",
+  "An interactive lab following one addition from keypad to display: binary adder, CPU, ALU, binary-to-BCD and 7-segment decoder.": "مختبر تفاعلي يتابع عملية جمع واحدة من لوحة المفاتيح إلى الشاشة: جامع ثنائي ومعالج ووحدة حساب وتحويل من ثنائي إلى BCD ومفكّك 7 قطع."
  },
  "html": {
   "hero_eyebrow": "SITC · {school} · تونس",

@@ -20,6 +20,7 @@ The visitor reads it as: who I am → what I study → what I am learning → wh
 ```
 index.html       semantic structure, SEO and Open Graph tags
 css/styles.css   tokens, layout, components
+projects/        full projects hosted inside the portfolio (projects/calculator-lab/)
 js/data.js       ALL content: profile, modules, projects, skills, roadmap
 js/i18n/         en.js, fr.js, ar.js (translations)
 js/main.js       rendering, language switching, tabs, filter, topology, form validation

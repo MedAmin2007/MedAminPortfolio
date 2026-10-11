@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Inside a Calculator — Complete Interactive Lab</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+<a href="../../index.html#projects" style="display:inline-block;margin-bottom:10px;color:inherit;opacity:.8;font-size:14px">← Back to portfolio</a>
+<div class="tag">Digital logic · CPU · hardware</div>
+<h1>Inside a Calculator: 10 + 9</h1>
+<p>Three views of the same calculation: the binary adder, the full keypad-to-display lab, and the hardware schematic with animated current.</p>
+<div class="tabs" role="tablist" aria-label="Views"><button role="tab" id="bt1" aria-controls="t1" aria-selected="true">1 · Binary adder</button><button role="tab" id="bt2" aria-controls="t2" aria-selected="false">2 · Keypad → display lab</button><button role="tab" id="bt3" aria-controls="t3" aria-selected="false">3 · Hardware schematic</button></div>
+</header>
+<main><section role="tabpanel" id="t1" aria-labelledby="bt1"><div id="app1"></div></section><section role="tabpanel" id="t2" aria-labelledby="bt2" hidden><div id="app2"></div></section><section role="tabpanel" id="t3" aria-labelledby="bt3" hidden><div id="app3"></div></section></main>
+
+<!-- Markup for each app; script.js attaches these to Shadow DOM roots. -->
+<template id="tpl1"><link rel="stylesheet" href="styles.css"><div class="root a1" data-theme="dark">
+<header><div><div class="tag">Digital logic lab · interactive</div><h1>Inside a Calculator: <em>10 + 9</em></h1><p class="mut" style="max-width:640px">Follow the signals from binary inputs through XOR, AND and OR gates in a ripple-carry adder to the final result.</p></div><button class="icon" id="theme" aria-label="Toggle theme">◐ Theme</button></header>
+<main>
+<aside class="panel"><div class="tag">Controls</div>
+<nav class="steps" id="nav"></nav>
+<div class="bar"><i id="prog"></i></div>
+<div class="ctl"><button class="btn" id="prev" aria-label="Previous step">◀</button><button class="btn" id="next" aria-label="Next step">▶|</button><button class="btn" id="reset" aria-label="Reset">↺</button><button class="btn p" id="play">▶ Play</button></div>
+<p class="mut" style="margin-top:12px">Speed</p><input id="speed" type="range" min="600" max="2400" step="100" value="1400" aria-label="Animation speed (slower to the right)">
+<p class="mut">← Arrow keys step · Space plays</p></aside>
+<section class="content">
+<section class="card" id="c0"><div class="tag">01</div><h2>Decimal → binary</h2><div class="two">
+<div class="num"><div class="eq">10₁₀ = 1010₂</div><div class="bits" id="bA"></div><div class="wts"><span>8</span><span>4</span><span>2</span><span>1</span></div></div>
+<div class="num"><div class="eq">9₁₀ = 1001₂</div><div class="bits" id="bB"></div><div class="wts"><span>8</span><span>4</span><span>2</span><span>1</span></div></div></div>
+<div class="note">Digital circuits treat two voltage ranges as logic LOW (0) and HIGH (1); exact levels depend on the technology.</div></section>
+<section class="card" id="c1"><div class="tag">02</div><h2>Four full adders, right to left</h2><p class="mut">Each position takes A, B and the carry from the previous one, and outputs a Sum and a Carry.</p>
+<div class="adders" id="adders"></div><div class="status" id="status" role="status" aria-live="polite"></div>
+<div class="res" id="res" aria-label="Binary result"></div></section>
+<section class="card" id="c2"><div class="tag">03</div><h2>Inside one full adder</h2><p class="mut">Live for the selected bit position.</p>
+<svg viewBox="0 0 720 340" role="img" aria-label="Full adder logic circuit">
+<defs><marker id="ar" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0L6,3L0,6" fill="var(--mut)"/></marker></defs>
+<text x="8" y="54" class="t">A</text><text x="8" y="104" class="t">B</text><text x="4" y="204" class="t">Cin</text>
+<path id="wA1" class="w" d="M36 50H120V63H192"/><path id="wA2" class="w" d="M120 50V262H190"/>
+<path id="wB1" class="w" d="M36 100H140V87H192"/><path id="wB2" class="w" d="M140 100V292H190"/>
+<path class="g x" d="M192 55Q222 75 192 95Q238 95 266 75Q238 55 192 55Z"/><path class="g x" fill="none" d="M182 55Q212 75 182 95"/><text x="206" y="79" class="t">XOR</text>
+<path id="wP1" class="w" d="M266 75H320V135H372"/><path id="wP2" class="w" d="M320 75V226H372"/>
+<path id="wC1" class="w" d="M36 200H345V155H372"/><path id="wC2" class="w" d="M345 200V254H372"/>
+<path class="g x" d="M372 120Q402 145 372 170Q418 170 446 145Q418 120 372 120Z"/><path class="g x" fill="none" d="M362 120Q392 145 362 170"/><text x="386" y="149" class="t">XOR</text>
+<path id="wS" class="w" d="M446 145H640" marker-end="url(#ar)"/>
+<path class="g a" d="M372 215H392A25 25 0 0 1 392 265H372Z"/><text x="376" y="244" class="s">AND</text>
+<path id="wH" class="w" d="M417 240H480V285H520"/>
+<path class="g a" d="M190 252H210A25 25 0 0 1 210 302H190Z"/><text x="194" y="281" class="s">AND</text>
+<path id="wG" class="w" d="M235 277H260V307H520"/>
+<path class="g o" d="M520 272Q548 296 520 320Q565 320 595 296Q565 272 520 272Z"/><text x="540" y="300" class="t">OR</text>
+<path id="wO" class="w" d="M595 296H640" marker-end="url(#ar)"/>
+<circle id="lA" cx="26" cy="50" r="6" class="l"/><circle id="lB" cx="26" cy="100" r="6" class="l"/><circle id="lC" cx="26" cy="200" r="6" class="l"/>
+<circle id="lS" cx="660" cy="145" r="10" class="l"/><circle id="lO" cx="660" cy="296" r="10" class="l"/>
+<text x="680" y="149" class="t" id="vS">0</text><text x="680" y="300" class="t" id="vO">0</text>
+<text x="560" y="132" class="s">SUM</text><text x="600" y="280" class="s">COUT</text>
+<text x="226" y="332" class="s" fill="var(--mut)">A·B (generate)</text><text x="372" y="204" class="s">P·Cin</text><text x="256" y="66" class="s">P</text>
+</svg>
+<div class="three"><div class="f"><b>Propagate</b><br>P = A ⊕ B</div><div class="f"><b>Sum</b><br>S = P ⊕ Cin</div><div class="f"><b>Carry</b><br>Cout = A·B + P·Cin</div></div>
+<div class="status" id="cstat"></div></section>
+<section class="card" id="c3"><div class="tag">04</div><h2>The display shows the answer</h2>
+<div class="res"><span class="eq">10011₂</span><span>=</span><span class="dec">19</span></div>
+<p style="text-align:center;margin:0" class="eq">1×16 + 0×8 + 0×4 + 1×2 + 1×1 = 19</p>
+<div class="note">The circuit outputs binary. The calculator's control logic then converts it for the display.</div></section>
+</section></main>
+<footer>Educational logic-level model · not a transistor-accurate simulator.</footer>
+</div></template>
+<template id="tpl2"><link rel="stylesheet" href="styles.css"><div class="root a2" data-theme="dark">
+<div class="w">
+<div class="tag">CALCULATOR · FROM KEYSTROKE TO DISPLAY</div>
+<h1>What a Calculator Really Does: A Full Step-by-Step Lab</h1>
+<p class="mut">Keypad → encoder → CPU (control unit + registers) → ALU of 8 full adders → binary-to-BCD → 7-segment decoder → display.</p>
+<div class="bar"><span>Numbers</span><input id="ia" type="number" min="0" max="99" value="10" aria-label="First number"><b>+</b><input id="ib" type="number" min="0" max="99" value="9" aria-label="Second number"><button class="b p" id="go">Run experiment</button>
+<button class="b" id="pv" aria-label="Previous">◀</button><button class="b" id="pl">▶ Play</button><button class="b" id="nx" aria-label="Next">▶</button><input id="sl" type="range" min="0" max="0" value="0" aria-label="Step" style="flex:1;min-width:120px;accent-color:var(--acc)"><button class="b" id="th">◐</button></div>
+<div class="ph" id="ph"></div>
+<div class="g">
+<div class="c" id="p0"><h2>① Keypad (4×4 matrix)</h2><div class="kp" id="kp"></div><p class="l mut" id="scan" style="margin-top:10px"></p></div>
+<div class="c" id="p1"><h2>② CPU: control unit and registers</h2><div class="rg" id="cpu"></div></div>
+<div class="c" id="p2"><h2>③ ALU: 8-bit ripple-carry adder (8 full adders)</h2><div id="alu"></div><p class="l mut" id="gates" style="margin-top:8px"></p></div>
+<div class="c" id="p3"><h2>④ Binary → BCD (Double Dabble)</h2><div class="rg" id="dd"></div></div>
+<div class="c" id="p4"><h2>⑤ 7-segment decoder and display</h2><div class="sg" id="seg"></div><p class="l mut" id="sgt" style="margin-top:8px"></p></div>
+</div>
+<div class="st" id="tx" role="status" aria-live="polite"></div>
+<p class="mut">Educational model at the digital-logic level, not a transistor-accurate simulation of a real chip.</p>
+</div>
+</div></template>
+<template id="tpl3"><link rel="stylesheet" href="styles.css"><div class="root a3">
+<div class="w">
+<h1>Calculator Internal Hardware Schematic</h1>
+<p class="mut">Press Play to watch the current (glowing dots) flow through the wires while 10 + 9 is computed.</p>
+<div class="bar"><button id="pv" aria-label="Previous">◀</button><button class="p" id="pl">▶ Play</button><button id="nx" aria-label="Next">▶</button><input id="sl" type="range" min="0" value="0" aria-label="Step" style="flex:1;min-width:120px;accent-color:#3ddc97"></div>
+<div class="sc"><svg id="svg" viewBox="0 0 1000 540" role="img" aria-label="Calculator hardware schematic"></svg></div>
+<div class="lg"><span><i style="background:var(--pw)"></i>Power supply (VCC)</span><span><i style="background:var(--dt)"></i>Data bus</span><span><i style="background:var(--ad)"></i>Address bus</span><span><i style="background:var(--ct)"></i>Control lines and clock</span></div>
+<div class="st" id="tx" role="status" aria-live="polite"></div>
+<p class="mut" style="margin-top:10px">Educational block diagram: it shows signal flow between units, not a real transistor-level circuit.</p>
+</div>
+</div></template>
+
+<script src="script.js"></script>
+</body>
+</html>

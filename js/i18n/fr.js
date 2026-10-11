@@ -249,7 +249,10 @@ window.I18N.fr = {
   "Please write at least 10 characters.": "Veuillez écrire au moins 10 caractères.",
   "Demo mode: set your real email in js/data.js to enable sending.": "Mode démo : renseignez votre vraie adresse dans js/data.js pour activer l'envoi.",
   "Opening your email app…": "Ouverture de votre application de messagerie…",
-  "Portfolio contact": "Contact via le portfolio"
+  "Portfolio contact": "Contact via le portfolio",
+  "Digital Logic": "Logique numérique",
+  "Inside a Calculator: 10 + 9": "À l'intérieur d'une calculatrice : 10 + 9",
+  "An interactive lab following one addition from keypad to display: binary adder, CPU, ALU, binary-to-BCD and 7-segment decoder.": "Un labo interactif qui suit une addition du clavier à l'affichage : additionneur binaire, CPU, UAL, conversion binaire-BCD et décodeur 7 segments."
  },
  "html": {
   "hero_eyebrow": "SITC · {school} · Tunisie",
