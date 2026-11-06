@@ -2,7 +2,7 @@
    1) Get a free access key at https://web3forms.com (enter your email, key arrives by mail)
    2) Paste it below. */
 (function () {
-  var KEY = 'PASTE_YOUR_ACCESS_KEY_HERE';
+  var KEY = 'e8b80aad-c6cb-43e3-baad-3a26fa51767c';
   var form = document.getElementById('form');
   if (!form) return;
   var status = document.getElementById('formStatus');
