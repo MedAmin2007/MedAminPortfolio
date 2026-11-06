@@ -7,7 +7,7 @@ window.SITE = {
     school: 'ISSAT Mahdia',
     schoolUrl: 'https://issatmh.rnu.tn/',
     track: 'SITC — Systèmes Intelligents, Télécommunications et Cybersécurité',
-    email: 'your.email@example.com',                       // [PLACEHOLDER]
+    email: 'mohamedaminbejaoui12@gmail.com',                       // [PLACEHOLDER]
     github: 'https://github.com/MedAmin2007',
     linkedin: 'https://linkedin.com/in/your-username'      // [PLACEHOLDER]
   },
